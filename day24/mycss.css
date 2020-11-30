@@ -1,0 +1,264 @@
+#box{
+    width: 1200px;
+    margin-top: 30px;
+    background-attachment: fixed;
+}
+#header{
+    width: 1200px;
+    height: 150px;
+    position: absolute;
+    background-color: aliceblue;
+    left: 50%;
+    margin-left: -600px;
+}
+.qqmusic_logo{
+    position: absolute;
+    padding-top: 30px;
+}
+.top_nav{
+    color: rgb(0, 0, 0);
+    font-family: poppin, Tahoma, Arial, 微软雅黑, sans-serif;
+    left: 198px;
+    line-height: 21px;
+    position: absolute;
+    top: 0px;
+    list-style: none;
+    padding-left: 1px;
+    padding-top: 26px;
+}
+.top_nav_item{
+    color: rgb(0, 0, 0);
+    float: left;
+    font-family: poppin, Tahoma, Arial, 微软雅黑, sans-serif;
+    font-size: 30px;
+    line-height: 20px;
+    position: relative;
+    padding-right: 10px;
+}
+.search-input{
+    width: 230px;
+    height: 30px;
+    font-size: 16px;
+    float: right;
+    position: absolute;
+    margin-top: 35px;
+    margin-right: 230px;
+    opacity: 10%;
+}
+.search_icon{
+    width: 20px;
+    height: 20px;
+    float: right;
+    position: relative;
+    padding-top: 43px;
+    margin-right: -230px;
+}
+.top_nav_login{
+    font-size: 20px;
+    float: right;
+    padding-top: 40px;
+    margin-right: -300px;
+}
+.top_nav_login_1 a:link{
+    color: black;
+}
+.top_nav_login_1 a:visited{
+    color: unset;
+}
+.top_nav_login_1 a:hover{
+    color: chocolate;
+    font-size: 25px;
+}
+.top_nav_login_1 a:active{
+    color: unset;
+}
+
+.top_nav_vip a{
+    font-size: 30px;
+    position: relative;
+    color: black;
+    float: right;
+    line-height: 20px;
+    margin-right: -430px;
+    padding-top: 40px;
+}
+
+.top_nav_subnav{
+    font-family: poppin, Tahoma, Arial, 微软雅黑, sans-serif;
+    left: 198px;
+    line-height: 21px;
+    position: absolute;
+    top: 0px;
+    list-style: none;
+    padding-left: 1px;
+    padding-top: 26px;
+}
+.top_nav_subnav li{
+    float: left;
+    font-family: poppin, Tahoma, Arial, 微软雅黑, sans-serif;
+    font-size: 25px;
+    line-height: 15px;
+    position: relative;
+    padding-right: 35px;
+    padding-top: 70px;
+}
+
+.top_nav_subnav li a:link{color: black}
+.top_nav_subnav li a:visited{color: aquamarine}
+.top_nav_subnav li a:hover{color: cornflowerblue;font-size: 28px}
+.top_nav_subnav li a:active{color: darkred}
+
+
+#center{
+    width: 1200px;
+    height: 500px;
+    position: absolute;
+    background-color: aliceblue;
+    top: 180px;
+    left: 50%;
+    margin-left: -600px;
+}
+.center_top_title{
+    position: relative;
+    float: left;
+    font-family: 宋体;
+    padding-top:20px;
+    font-size: 35px;
+    padding-left: 500px;
+}
+.center_nav_item{
+    color: rgb(0, 0, 0);
+    font-family: poppin, Tahoma, Arial, 微软雅黑, sans-serif;
+    left: 560px;
+    line-height: 21px;
+    position: absolute;
+    top: 0px;
+    list-style: none;
+    padding-left: 1px;
+    padding-top: 26px;
+}
+
+.center_nav_item li{
+    color: rgb(0, 0, 0);
+    float: left;
+    font-family: poppin, Tahoma, Arial, 微软雅黑, sans-serif;
+    font-size: 15px;
+    line-height: 15px;
+    position: relative;
+    padding-right: 35px;
+    position: relative;
+    float: left;
+    padding-top: 260px;
+    margin-left: 40px;
+}
+.center_nav_item li a:link{color: black}
+.center_nav_item li a:visited{color: unset}
+.center_nav_item li a:hover{color: aquamarine;font-size: 20px}
+.center_nav_item li a:active{color: black}
+
+#footer{
+    width: 1200px;
+    height: 560px;
+    position: absolute;
+    background-color: cornflowerblue;
+    top: 680px;
+    left: 50%;
+    margin-left: -600px;
+}
+#qq_music_nail{
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    position: fixed;
+    left: 1300px;
+    top: 190px;
+    box-shadow: 3px 3px 3px 3px darkgray;
+}
+.qq_music_nail_logo{
+    position: absolute;
+    width: 110px;
+    height: 40px;
+    padding-left: 40px;
+    padding-top: 4px;
+}
+.qq_music_nail_introduce{
+    padding-left: 25px;
+    padding-top: 25px;
+    opacity: 20%;
+    font-size: 16px;
+}
+.popup_guide__btn_icon{
+    display: inline-block;
+    margin-right: 4px;
+    vertical-align: -1px;
+    width: 13px;
+    height: 14px;
+    background-position: -160px -320px;
+    background-image:url("images/icon_sprite.png");
+    line-height: 26px;
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+}
+.top_nav_login_button{
+    background-color: #4CAF50;
+    border: 1px solid blanchedalmond;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    margin-top: -20px;
+    margin-right:-10px;
+}
+.top_nav_login_button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.icon_content{
+    margin-top: -15px;
+    margin-left: 1px;
+}
+.icon_content_load{
+    background-color: #4CAF50;
+    border: 1px solid blanchedalmond;
+    color: white;
+    padding: 2px 20px;
+    text-align: center;
+    text-decoration: white;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    position: relative;
+    width: 100px;
+    height: 25px;
+    margin-top: 1px;
+    margin-left:30px;
+    border-radius: 20px;
+}
+.icon_content_tubiao{
+    background-image: url("images/icon_sprite.png");
+    background-repeat: no-repeat;
+    display:inline-block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-position: -120px -200px;
+    margin-left: -55px;
+    margin-top: 3px;
+}
+.icon_content_wenzi {
+    margin-top:2px;
+    margin-left: 15px;
+}
+a{
+    text-decoration: none;
+}
+
+.icon_content_load a:link{color: white}
+.icon_content_load a:visited{color:white}
+.icon_content_load a:hover{color:yellow}
+.icon_content_load a:active{color: darkkhaki}
+

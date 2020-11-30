@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js onload事件</title>
+</head>
+<body onload="checkCookies()">
+    <p id="demo"></p>
+</body>
+<script>
+    function checkCookies() {
+        var text = " ";
+        if(navigator.cookieEnabled == true){ //检测浏览器是否启用了 cookie，如果启用了，该属性值为 true。如果禁用了 cookie，则值为 false。
+            text = "Cookie 已启用";
+        }else {
+            text = "Cookie 未启用";
+        }
+        document.getElementById("demo").innerHTML = text;
+    }
+</script>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="config/jdbc.properties">
+       <!-- <property name="driver" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/mybatisdemo"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>-->
+    </properties>
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING" />
+    </settings>
+    <typeAliases>
+       <!-- <typeAlias type="suncaper.domain.User" alias="User"/>
+        <typeAlias type="suncaper.domain.Clazz" alias="Clazz"/>
+        <typeAlias type="suncaper.domain.Teacher" alias="Teacher"/>
+        <typeAlias type="suncaper.domain.Products" alias="Products"/>
+        <typeAlias type="suncaper.domain.Category" alias="Category"/>-->
+        <package name="suncaper.domain"/>
+    </typeAliases>
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+    <environments default="env1">
+        <environment id="env1">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+        <mappers>
+            <mapper resource="mapper/UserMapper.xml"/>
+            <mapper resource="mapper/ClazzMapper.xml"/>
+            <mapper resource="mapper/TeacherMapper.xml"/>
+            <mapper resource="mapper/CategoryMapper.xml"/>
+            <mapper resource="mapper/ProductsMapper.xml"/>
+            <mapper resource="mapper/ProductMapper.xml"/>
+            <mapper resource="mapper/extend/ProductMapperExtend.xml"/>
+
+        </mappers>
+</configuration>

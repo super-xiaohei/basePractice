@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单JavaScript 框架的封装</title>
+</head>
+<body>
+    <script>
+        (function () {
+            var myJsObject = {
+                getNowTxt:function () {
+                    var now = new Date();
+                    return now.getFullYear() + " " + now.getMonth() + " " + now.getData();
+                }
+            }
+            window.myJsObject = myJsObject;
+        })();
+        var nowTxt = Core.getNowTxt();
+        console.info(nowTxt)
+    </script>
+</body>
+</html>

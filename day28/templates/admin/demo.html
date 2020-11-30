@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+</head>
+<body>
+<form class="col-lg-6 col-lg-offset-3">
+    <div class="form-group" id="userDiv">
+        <label>用户名</label>
+        <input type="text" class="form-control" placeholder="username" id="username">
+        <span id="msg"></span>
+    </div>
+    <div class="form-group" id="passwordDiv">
+        <label for="exampleInputPassword1">密码</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-default" id="btn1">登录</button>
+</form>
+<input name="none" />
+</body>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="../../static/layer/layer.js"></script>
+<script>
+    $(function () {
+        var name = "hello";
+        console.info(name);
+        var val = $("#username").val();
+        console.info(val)
+        $("#username").blur(function () {
+            if($("#username").val() == name){
+                $("#userDiv").removeClass("has-success");
+                $("#userDiv").addClass("has-error");
+                $("#msg").text("用户名已存在");
+            }else {
+                $("#userDiv").removeClass("has-error");
+                $("#userDiv").addClass("has-success");
+                $("#msg").text("该用户名可用");
+            }
+        })
+    })
+</script>
+</html>

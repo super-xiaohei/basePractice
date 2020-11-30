@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js prompt实例</title>
+</head>
+<body>
+    <h2> javascript prompt实例</h2>
+    <button id="btn1">点击我试试</button>
+    <p id="demo"></p>
+</body>
+<script>
+    document.getElementById("btn1").onclick = function () {
+        var text;
+        var input = window.prompt("请输入您的用户名");
+        if(input == " "|| input == null){
+            text = "您取消了操作";
+        }else{
+            text = "欢迎您" + input;
+        }
+        document.getElementById("demo").innerHTML = text;
+    }
+</script>
+</html>

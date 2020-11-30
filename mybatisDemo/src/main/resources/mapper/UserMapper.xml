@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="suncaper.dao.UserMapper" >
+    <resultMap id="baseResultMap" type="User">
+        <id column="id" property="id"></id>
+        <result  column="username" property="username"/>
+        <result column="birthday" property="birthday"/>
+        <result column="sex" property="sex"/>
+        <result column="address" property="address"/>
+        <result column="pwd" property="pwd"/>
+    </resultMap>
+    <select id="selectUserByAddr" parameterType="java.lang.String"  resultMap="baseResultMap">
+        select  id, username ,birthday,sex , address from user where address  = #{adress}
+    </select>
+    <select id="selectUserById" parameterType="_int"  resultMap="baseResultMap">
+        select  id, username ,birthday,sex , address,pwd from user where id = #{id}
+    </select>
+    <delete id="deleteById">
+        delete from user where id = #{id} and address = #{address}
+    </delete>
+    <insert id="inserUser" useGeneratedKeys="true" keyProperty="id">
+        <!--获取最后一次插入之后的id值-->
+        <selectKey keyProperty="id" keyColumn="id" resultType="int" order="AFTER">
+            select last_insert_id();
+        </selectKey>
+        insert into user(username,birthday,sex,address) values(#{username},#{birthday},#{sex},#{address})
+    </insert>
+    <select id="selectByUser" resultMap="baseResultMap">
+        select * from user where id = #{u.id} and address = #{u.address}
+    </select>
+    <select id="selectByLikeName" resultMap="baseResultMap">
+        SELECT * FROM `user` WHERE username LIKE "%王%";
+    </select>
+    <sql id="col">
+         id, username ,birthday,sex , address,pwd
+    </sql>
+    <select id="selectByName" resultMap="baseResultMap">
+         select  id, username ,birthday,sex , address,pwd from user where username like "%${name}%";
+    </select>
+    <select id="selectAllMapUser" resultMap="baseResultMap">
+        select id, username ,birthday,sex , address,pwd from user;
+    </select>
+    <select id="selectOneMapUser" resultType="HashMap">
+        select * from user where id = #{id};
+    </select>
+    <select id="selectAllMapCol" resultType="HashMap">
+        select * from user;
+    </select>
+    <select id="selelctBySome" resultMap="baseResultMap">
+        select <include refid="col"/> from `user`
+        <where>
+            <if test="user.sex != null and user.sex != ''">
+                and sex = #{sex}
+            </if>
+            <if test="user.id != null and user.id != ''">
+                and id = #{id}
+            </if>
+            <if test="user.pwd != null and user.pwd != ''">
+                and pwd = #{pwd}
+            </if>
+        </where>
+    </select>
+    <delete id="deleteByIds">
+        delete from `user` where id in
+        <foreach collection="idList" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+    <insert id="inserUsers">
+        insert into `user`(username,birthday,sex,address,pwd) values
+        <foreach collection="userList" item="user" separator=",">
+            (#{user.username},#{user.birthday},#{user.sex},#{user.address},${user.pwd})
+        </foreach>
+    </insert>
+</mapper>

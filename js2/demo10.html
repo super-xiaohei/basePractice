@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格-增加行，删除行，可编辑单元格</title>
+    <style>
+        table,td,th{
+            border:1px solid #0000ff;
+            border-collapse: collapse;
+        }
+        table{
+            width: 400px;
+            margin: 20px auto;
+        }
+        td{
+            text-align: center;
+        }
+        div{
+            width: 400px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <button id="addBtn">添加一条记录</button>
+</div>
+<hr/>
+<table id="mytable">
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>编辑</th>
+    </tr>
+    <tr>
+        <td>001</td>
+        <td>张三</td>
+        <td>男</td>
+        <td><a href="#">删除</a></td>
+    </tr>
+    <tr>
+        <td>001</td>
+        <td>张三</td>
+        <td>男</td>
+        <td><a href="#">删除</a></td>
+    </tr>
+    <tr>
+        <td>001</td>
+        <td>张三</td>
+        <td>男</td>
+        <td><a href="#">删除</a></td>
+    </tr>
+</table>
+</body>
+<script>
+    (function () {
+        var delrow = function(ev){
+                var tr = ev.target.parentNode.parentNode;//a节点
+                //tr.parentNode.removeChild(tr);//找到父节点，通过父节点删除自己
+                tr.remove();
+        };
+        let editTd = function(ev){
+            let td = this;
+            //依据td中是否含有input,判断
+            if(td.getElementsByTagName("input").length > 0){
+                let input = td.getElementsByTagName("input")[0];
+                let content = input.value;
+                input.remove();
+                td.innerHTML = content;
+            }else{
+                let text = td.innerHTML;
+                td.innerHTML = "";
+                let textInput = document.createElement("input");
+                textInput.setAttribute("type","text");
+                textInput.style.width = "100px";
+                textInput.value = text;
+                td.appendChild(textInput);
+            }
+        }
+        //添加记录
+       document.getElementById("addBtn") .onclick = function () {
+           var table = document.getElementById("mytable");
+           var tr = document.createElement("tr");
+           var td1 = document.createElement("td");
+           td1.innerHTML = "999";
+           td1.ondblclick = editTd;
+           var td2 = document.createElement("td");
+           td2.innerHTML = "胡金宝";
+           td2.ondblclick = editTd;
+           var td3 = document.createElement("td");
+           td3.innerHTML = "女";
+           td3.ondblclick = editTd;
+           var td4 = document.createElement("td");
+           var anchor = document.createElement("a");
+           anchor.innerHTML = "删除";
+           anchor.setAttribute("href","javaScript::");
+           anchor.onclick = delrow;
+           td4.appendChild(anchor);
+           tr.appendChild(td1);
+           tr.appendChild(td2);
+           tr.appendChild(td3);
+           tr.appendChild(td4);
+           table.appendChild(tr);
+       };
+       //删除行
+        var table = document.getElementById("mytable");
+        var allDel = table.getElementsByTagName("a");
+        for(var i = 0;i < allDel.length;i++){
+          allDel[i].onclick = delrow;
+        }
+        //双击可编辑表格
+        let allTd = document.getElementsByTagName("td");
+        for(let i = 0;i < allTd.length;i++){
+            (function (i) {
+                if(i%4 != 3){
+                    allTd[i].ondblclick = editTd;
+                }
+            })(i);
+        }
+    })();
+</script>
+</html>

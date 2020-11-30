@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>省市联动</title>
+    <link href="../plugin/jquery-ui-1.12.1.custom/jquery-ui.css" type="text/css"/>
+</head>
+<div>
+    <div data-toggle="distpicker" id="one">
+        <select  id="eprovinceName" name="">---- 选择省 ----</select>
+        <select  id="ecityName" name="">---- 选择市 ----</select>
+        <select  id="edistrictName" name="">---- 选择区 ----</select>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    </div>
+        <button  style="width: 60px;height: 30px;" id='print'>打印</button>
+    </div>
+
+
+</body>
+</html>
+<script src="../js/jquery.min.js"></script>
+<script src="../plugin/dist/distpicker.data.js"></script>
+<script src="../plugin/dist/distpicker.js"></script>
+<script>
+    $(function () {
+        $("#one").distpicker({
+            /*province: '---- 所在省 ----',
+            city: '---- 所在市 ----',
+            district: '---- 所在区 ----'*/
+        });
+        $("#print").click(function () {
+            var province = $("#eprovinceName").find("option:selected").text();
+            var city = $("#ecityName").find("option:selected").text();
+            var district = $("#edistrictName").find("option:selected").text();
+            console.log(province + "  " + city + "  " + district);
+        })
+    })
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js 对象的基本使用</title>
+</head>
+<body>
+<script>
+    /*js对象就是键值对*/
+
+    /*var obj = new Object();
+    obj.name = "小黑";
+    obj.sex = "男";
+    obj.age = 20;
+    obj.salHello = function () {
+        console.warn("通过警告的方式输出" +this.name)
+    };*/
+    var  obj = {
+        name:"xioahei",
+        sex:"nan",
+        age:20,
+        sayHello:function () {
+            console.warn("通过警告的方式输出" +this.name);
+        }
+    };
+    obj.fn = function(){
+        console.info("对象扩展出来的属性");
+    }
+    console.table(obj);
+    obj.salHello();
+    obj.fn();
+    Core.getNowTxt();//
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标滑过改变背景颜色</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #666666;
+            margin: auto;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div id="mydiv">
+        这是一个不要脸的div
+    </div>
+    <hr/>
+    <input type="text" id="myname">
+</body>
+<script>
+    (function () {
+        var div = document.getElementById("mydiv");
+        div.onmouseover = function (ev) {
+            div.style.backgroundColor = "red";
+        }
+        div.onmouseleave = function (ev) {
+            div.style.backgroundColor = "yellow";
+        }
+        div.onclick = function (ev) {
+            console.info(div.innerHTML + Math.random());
+        }
+        div.addEventListener("click",function (ev) {
+            console.info("本质上是")
+        })
+        document.getElementById("myname").onblur = function (ev) {
+            console.info("失去焦点时经常验证");
+        }
+        document.getElementById("myname").onfocus = function (ev) {
+            console.info("获取焦点时经常验证");
+            this.value = "";
+        }
+        document.getElementById("myname").onchange = function (ev) {
+            console.info("改变内容" + this.value)
+        }
+        //监听键盘 ctrl + g
+                document.onkeydown = function()
+                {
+                    var oEvent = window.event;
+                    if (oEvent.keyCode == 71 && oEvent.shiftKey) {  //这里只能用alt，shift，ctrl等去组合其他键event.altKey、event.ctrlKey、event.shiftKey 属性
+                       alert("你按下了shift + g");
+                    }
+                }
+
+    })()
+</script>
+</html>

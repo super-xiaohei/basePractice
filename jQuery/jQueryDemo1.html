@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 入门:helloworld</title>
+</head>
+<body>
+    <input type="text" id="myName">
+    <button>获取</button>
+</body>
+<script src="jq/jquery.min.js"></script>
+<script type="text/javascript">
+
+        /*//Button是dom对象，只有值的作用，没有方法
+        var buttonList = document.getElementsByTagName("button");
+        var $btn = $(buttonList); //don---->jQuery对象
+        var btnDom = $btn[0];//jQuery对象
+        $btn.click(function (ev) {
+            console.info($("#myName").val());
+        });*/
+        /*$("button").click(function (ev) {
+            console.info($("#myName").val());
+        })*/
+        $(document).ready(function(){
+            $("button").click(function () {
+                alert($("#myName").val());
+            })
+        });
+</script>
+</html>

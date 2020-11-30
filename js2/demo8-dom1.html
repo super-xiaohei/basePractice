@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="c1" id="d1"><span>div1</span></div>
+    <div class="c2" name="divname">div2</div>
+    <div class="c1">div3</div>
+</body>
+<script>
+    /*var div2 = document.getElementsByClassName("c1");
+    var div3 = document.getElementsByName("divname");
+    var div4 = document.getElementsByTagName("div");*/
+    /*
+    * 1.获取节点
+    * 2.修改或者添加属性。获取属性值
+    * 3.获取内置html 或 内置文本
+    * */
+
+    var div1 = document.getElementById("d1");
+    console.info(div1);
+    var attribute = div1.getAttribute("class");
+    console.info(attribute);
+    var elementsByTagName = document.getElementsByTagName("div");
+    console.info(elementsByTagName);
+    /*div1.setAttribute("class",div1.getAttribute("class") + " c2"); //修改或者添加属性
+    div1.setAttribute("name","mydiv1");
+    //var attrValue = attribute.value;
+    console.info(attribute.toString());
+    console.info(div1.innerHTML);//包含标签输出 <span>div1</span>
+    console.info(div1.innerText);//只包含文本  div1*/
+</script>
+</html>

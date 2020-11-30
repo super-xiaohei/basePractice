@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则基本使用</title>
+</head>
+<body>
+    <script>
+        var password = "abc123";
+        var reg = /[\w\d]{6,}/ig;     /*new RegExp("[\w\d]{6,}","ig");*/
+        //console.info(password.match(reg)) //js字符串match是查找的功能
+        //console.info(reg.test(password));
+    </script>
+</body>
+</html>

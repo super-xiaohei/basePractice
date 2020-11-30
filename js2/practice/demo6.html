@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js confirm实例</title>
+</head>
+<body>
+<h1>javaScripts 确认框</h1>
+<button id="btn1">点击试试</button>
+<p id="demo"></p>
+</body>
+<script>
+    document.getElementById("btn1").onclick = function () {
+        var text;
+        if(window.confirm("您确认要执行删除操作吗?")){
+            text = "您点击了确认";
+        }else {
+            text = "您取消了操作";
+        }
+        document.getElementById("demo").innerHTML = text;
+    }
+
+</script>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js onchange事件</title>
+</head>
+<body>
+    请输入您的名字:<input type="text" id="fname" onchange="myfunction()"/>
+    <p>离开输入字段时，会触发一个函数，将输入文本转换为大写。</p>
+</body>
+<script>
+    function myfunction() {
+        var name = document.getElementById("fname");
+        //console.info(name.value);
+        name.value = name.value.toUpperCase();
+    }
+</script>
+</html>

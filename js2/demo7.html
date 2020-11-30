@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js 演示window对象常见的属性和函数</title>
+</head>
+<body>
+<a href="#" id = "btn1">按钮</a><br/>
+<button onclick="window.history.forward()">前进一步</button><br/>
+<button onclick="window.print()">打印当前网页</button><br/>
+<button id = "timeoutBtn">timeout定时器演示</button><br/>
+<button id = "qxtimeoutBtn">取消timeout定时</button><br/>
+<button id = "intervaltBtn">interval定时器演示</button><br/>
+<button id = "qxintervalBtn">取消interval定时</button><br/>
+    <script>
+        (function () {
+            document.getElementById("btn1").onclick = function () {
+                //window.location.reload();
+                window.confirm("确认要删除吗？")
+            } ;
+            var timeout;
+            document.getElementById("timeoutBtn").onclick = function () {
+                //过5秒后执行
+                 timeout = setTimeout(function () {
+                    console.warn(Math.random())
+                },3000);
+            };
+            document.getElementById("qxtimeoutBtn").onclick = function () {
+                if(timeout){
+                    clearInterval(timeout);
+                }
+            };
+
+
+            var timeout2;
+            document.getElementById("intervaltBtn").onclick = function () {
+                //过5秒后执行
+                timeout2 = setInterval(function () {
+                    console.warn(Math.random())
+                },3000);
+            };
+            document.getElementById("qxintervalBtn").onclick = function () {
+                if(timeout2){
+                    clearInterval(timeout2);
+                }
+            };
+
+        }())
+    </script>
+</body>
+</html>

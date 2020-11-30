@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 表格操作</title>
+    <style>
+        table,td,th{
+            border:1px solid #0000ff;
+            border-collapse: collapse;
+        }
+        table{
+            width: 400px;
+            margin: 20px auto;
+        }
+        td{
+            width: 400px;
+            height: 30px;
+            text-align: center;
+            padding: 0px;
+            margin: 0px;
+        }
+        div{
+            width: 400px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <button id="addBtn">添加一条记录</button>
+</div>
+<hr/>
+<table id="mytable">
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>编辑</th>
+    </tr>
+    <tr>
+        <td>001</td>
+        <td>张三</td>
+        <td>男</td>
+        <td class="op"><a href="#">删除</a></td>
+    </tr>
+    <tr>
+        <td>001</td>
+        <td>张三</td>
+        <td>男</td>
+        <td class="op"><a href="#">删除</a></td>
+    </tr>
+    <tr>
+        <td>001</td>
+        <td>张三</td>
+        <td>男</td>
+        <td class="op"><a href="#">删除</a></td>
+    </tr>
+</table>
+</body>
+<script src="jq/jquery.min.js"></script>
+<script>
+    $(function () {
+            //添加行
+            $("#addBtn").click(function () {
+                ($("<tr>").
+                        append($("<td>").on("dblclick",fnDbEdit).html("aaaa"))
+                        .append($("<td>").on("dblclick",fnDbEdit))
+                        .append($("<td>").on("dblclick",fnDbEdit))
+                        .append($("<td>").addClass("op'").append($("<a>").on("click",fndel).html("删除").prop("href","javascript::")))
+                ).appendTo("#mytable");
+            });
+            //双击单元格编辑
+            $("td[class!=op]").dblclick(fnDbEdit);
+            function fnDbEdit(e) {
+                var $td = $(this);
+                if($td.data("status")){
+                    $td.data("status",0);
+                    var yourInput = $td.find("input").val();//再次双击之后拿到输入的数据
+                    $td.html(yourInput);
+                }else {
+                    $td.data("status",1);
+                    var text = $td.html();
+                    $td.html("");
+                    $("<input type='text'>").val(text).css({width:"100px",height:"30px"}).appendTo($td);
+                }
+            };
+
+            //删除
+            $("a").on("click",fndel);
+            function fndel() {
+                if(confirm("确认要删除吗？")){
+                    $(this).parents("tr").remove();
+                }
+            }
+
+        });
+</script>
+</html>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+  <!-- <bean class="suncaper.Student1" id="s1">
+
+   </bean>
+   <bean class="suncaper.Teacher1" id="t1">
+      <property name="id" value="100"/>
+      <property name="name" value="张三"/>
+      <property name="age" value="20"/>
+   </bean>
+   <bean class="suncaper.Teacher1" id="t2">
+      <constructor-arg value="100" index="0" type="java.lang.Integer"/>
+      <constructor-arg value="aaa" index="1" type="java.lang.String"/>
+      <constructor-arg value="10" index="2" type="java.lang.Integer"/>
+   </bean>
+   <bean class="suncaper.Teacher1" id="t3" p:id="10" p:name="bbb" p:age="20"/>
+
+   <bean class="suncaper.Teacher1" id="t4">
+      <property name="student1">
+         <bean class="suncaper.Student1">
+            <property name="major" value="计算机"/>
+         </bean>
+      </property>
+   </bean>
+
+   <bean class="suncaper.Teacher1" id="t5">
+      <property name="student1" ref="s2"/>
+   </bean>
+   <bean class="suncaper.Student1" id="s2">
+      <property name="major" value="计算机科学与技术"/>
+   </bean>
+
+
+   <bean class="suncaper.Teacher1" id="t6">
+      <property name="list">
+         <list>
+            <value>李四</value>
+         </list>
+      </property>
+      <property name="student1List">
+         <list>
+            <ref bean="s2"/>
+         </list>
+      </property>
+   </bean>
+
+   <bean class="suncaper.Teacher1" id="t7">
+      <property name="map">
+         <map>
+            <entry key="1" value-ref="s2"></entry>
+            <entry key="2" value-ref="s2"></entry>
+            <entry key="3" value-ref="s2"></entry>
+         </map>
+      </property>
+   </bean>
+
+
+   <bean class="suncaper.MyDrive" id="myDrive">
+      <property name="user" value="root"/>
+      <property name="password" value="root"/>
+      <property name="url" value="jdbc:mysql:127.0.0.1:3306/webdb_1"/>
+      <property name="drive" value="com.mysql.jdbc.Driver"/>
+   </bean>
+
+   <context:property-placeholder location="jdbc.properties"/>
+   <bean class="suncaper.MyDrive" id="myDrive2">
+      <property name="user" value="${user}"/>
+      <property name="password" value="${password}"/>
+      <property name="url" value="${url}"/>
+      <property name="drive" value="${driver}"/>
+   </bean>-->
+
+   <!--<bean class="suncaper.Teacher1" name="teacher1"></bean>
+
+
+   <bean class="suncaper.Student1" id="student1" autowire="byName">
+   </bean>-->
+
+    <!--开启注解使用方式-->
+    <context:annotation-config/>
+    <!--配置需要扫描的包-->
+    <context:component-scan base-package="suncaper"/>
+</beans>

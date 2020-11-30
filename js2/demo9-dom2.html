@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 250px;
+            height: 600px;
+            border: 1px solid #666666;
+        }
+        .float{
+            float: left;
+        }
+        #manDiv{
+            background-color: aqua;
+        }
+        #womanDiv{
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" name="" id="input_name" value=""/>
+    男:<input type="radio" name="sex" id="man" checked>
+    女:<input type="radio" name="sex" id="woman" >
+    <button id="btn1">首行添加</button>
+    <button id="btn2">末行添加</button>
+    <hr/>
+    <div class="float" id="manDiv">
+        <ul>
+            <li>张三</li>
+        </ul>
+    </div>
+    <div class="float" id="womanDiv">
+        <ul>
+            <li>李四</li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+        window.onload = document.getElementById("btn1").onclick = function () {
+            if(document.getElementById("man").checked){
+                var nameId = document.getElementById("input_name");
+                var name = nameId.value;
+                var manDiv = document.getElementById("manDiv");
+                var ul = manDiv.getElementsByTagName("ul")[0];
+                var newLi = document.createElement("li");
+                newLi.innerHTML = name;
+            }else {
+                var nameId = document.getElementById("input_name");
+                var name = nameId.value;
+                var manDiv = document.getElementById("womanDiv");
+                var ul = manDiv.getElementsByTagName("ul")[0];
+                var newLi = document.createElement("li");
+                newLi.innerHTML = name;
+            }
+            var lis = ul.getElementsByTagName("li");
+            if (lis.length > 0) {
+                ul.insertBefore(newLi,lis[0]);
+            } else {
+                ul.appendChild(newLi);
+            }
+        }
+
+    window.onload = document.getElementById("btn2").onclick = function () {
+        if(document.getElementById("man").checked){
+            var nameId = document.getElementById("input_name");
+            var name = nameId.value;
+            var manDiv = document.getElementById("manDiv");
+            var ul = manDiv.getElementsByTagName("ul")[0];
+            var newLi = document.createElement("li");
+            newLi.innerHTML = name;
+        }else {
+            var nameId = document.getElementById("input_name");
+            var name = nameId.value;
+            var manDiv = document.getElementById("womanDiv");
+            var ul = manDiv.getElementsByTagName("ul")[0];
+            var newLi = document.createElement("li");
+            newLi.innerHTML = name;
+        }
+        ul.append(newLi);
+    }
+
+
+
+
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js 滑动显示图片</title>
+    <style>
+        #imgDiv{
+            width: 0px;
+            height: 437px;
+            background-color: aqua;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <button id="showImage">显示图片</button>
+    <br/>
+    <br/>
+    <br/>
+    <div id="imgDiv">
+        <img src="images/背景.jpg" alt="图片"/>
+    </div>
+</body>
+<script>
+    document.getElementById("showImage").onclick = function (ev) {
+        var imgDiv = document.getElementById("imgDiv");
+        imgDiv.style.width = "0px";
+        var interval = setInterval(function () {
+            imgDiv.style.width = (imgDiv.clientWidth+5) + "px";
+            if(imgDiv.clientWidth == 1200){
+                clearInterval(interval);
+            }
+        },20);
+    }
+</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 250px;
+            height: 600px;
+            border: 1px solid #666666;
+        }
+        .float{
+            float: left;
+        }
+        #manDiv{
+            background-color: aqua;
+        }
+        #womanDiv{
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+<input type="text" name="" id="input_name" value=""/>
+男:<input type="radio" name="sex" id="man">
+女:<input type="radio" name="sex" id="woman" >
+<button id="btn1">首行添加</button>
+<button id="btn2">末行添加</button>
+<hr/>
+<div class="float" id="manDiv">
+    <ul>
+
+    </ul>
+</div>
+<div class="float" id="womanDiv">
+    <ul>
+
+    </ul>
+</div>
+</body>
+<script src="jq/jquery.min.js"></script>
+<script type="text/javascript">
+    var name = $("#input_name").val();
+    console.info(name);
+    $(function () {
+        $("#btn1").click(function (ev) {
+            var name = $("#input_name").val();
+            if($("#man").is(":checked")){
+                ($("<li>").text(name)).prependTo("#manDiv > ul");
+            }else {
+                ($("<li>").text(name)).prependTo("#womanDiv > ul");
+            }
+        });
+        $("#btn2").click(function () {
+            var name = $("#input_name").val();
+            if($("#man").is(":checked")){
+                ($("<li>").text(name)).appendTo("#manDiv > ul");
+            }else {
+                ($("<li>").text(name)).appendTo("#womanDiv > ul");
+            }
+        })
+    })
+</script>
+</html>

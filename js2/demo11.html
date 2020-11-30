@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示一个前端的简单面试题</title>
+</head>
+<body>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+</body>
+<script>
+    //点击按钮事件，弹出对应下标
+   var buttons = document.getElementsByTagName("button");
+   //方式一
+   /*for(var i = 0;i < buttons.length;i++){
+       (function (i) {
+           buttons[i].onclick = function () {
+               alert("按钮  " + (i+1));
+           }
+       })(i);
+   }*/
+   //方式二（注意let和var声明变量的区别，这里改成var就有问题了）
+   for (let i = 0;i < buttons.length;i++){
+       buttons[i].onclick = function () {
+           alert("按钮  " + (i+1));
+       }
+   }
+</script>
+</html>

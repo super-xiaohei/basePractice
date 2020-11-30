@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js 鼠标移出和移入事件</title>
+</head>
+<body>
+    <div id="mouse" onmouseover="mOver(this)" onmouseout="mOut(this)"
+     style="background-color:#D94A38;width:120px;height:20px;padding:40px;">
+     请把鼠标移上来
+    </div>
+</body>
+<script>
+    function mOver() {
+        document.getElementById("mouse").innerHTML = "请你爬出去";
+    }
+    function mOut() {
+        document.getElementById("mouse").innerHTML = "搞快点过来";
+    }
+</script>
+</html>

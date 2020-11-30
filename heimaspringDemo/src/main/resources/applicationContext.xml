@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="suncaper.dao.Impl.UserDaoImpl" id="UserDao1" scope="prototype"></bean>
+
+    <bean class="suncaper.service.Impl.UserviceImpl" id="userservice1"></bean>
+
+    <bean class="suncaper.dao.Impl.UserDaoImpl" id="UserDao2" scope="prototype">
+        <property name="list">
+            <list>
+                <value>aaa</value>
+                <value>bbb</value>
+                <value>ccc</value>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="u1" value-ref="user1"/>
+                <entry key="u2" value-ref="user2"/>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="a1">aaa</prop>
+                <prop key="a2">bbb</prop>
+                <prop key="a3">ccc</prop>
+            </props>
+        </property>
+    </bean>
+    <bean class="suncaper.domain.User" id="user1"></bean>
+    <bean class="suncaper.domain.User" id="user2"></bean>
+</beans>

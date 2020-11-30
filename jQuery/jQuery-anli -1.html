@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例1：滑动显示图片</title>
+    <style>
+        .showImage{
+
+        }
+    </style>
+</head>
+<body>
+    <button>显示/隐藏</button>
+    <hr/>
+    <div class="showImage">
+        <img src="images/背景.jpg" alt="图片">
+    </div>
+</body>
+<script src="jq/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("button").click(function () {
+            //$(".showImage").slideToggle();
+            $(".showImage").toggle(2000);
+        });
+    })
+</script>
+</html>

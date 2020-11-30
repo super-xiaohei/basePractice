@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>你喜欢那个城市</p>
+    <ul id="city">
+        <li>北京</li>
+        <li>上海</li>
+        <li>成都</li>
+    </ul>
+    <br/>
+    <br/>
+    <hr/>
+    <p>你喜欢那个游戏</p>
+    <ul id="game">
+        <li>红警</li>
+        <li>csgo</li>
+        <li>魔兽</li>
+    </ul>
+    <br/>
+    <hr/>
+
+    你爱好的运动是？
+    <input type="checkbox" id="checkedAll_2"/>全选/全不选 <br>
+    <input type="checkbox" name="items" value="足球"/>足球
+    <input type="checkbox" name="items" value="篮球"/>篮球
+    <input type="checkbox" name="items" value="羽毛球"/>羽毛球
+    <input type="checkbox" name="items" value="乒乓球"/>乒乓球
+    <br/>
+    <input type="button" id="CheckedAll" value="全　选"/>
+    <input type="button" id="CheckedNo" value="全不选"/>
+    <input type="button" id="CheckedRev" value="反　选"/>
+    <input type="button" id="send" value="提　交"/>
+    <br>
+    <hr/>
+    <form action="" name="myform">
+        <input type="radio" name="type" value="city">城市
+        <input type="radio" name="type" value="game">游戏
+        <br/>
+        名称:<input type="text" name="name" id="name">
+        <input type="button" value="提交" id="button">
+
+    </form>
+</body>
+<script src="../../js/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //点击全选/全不选
+        $("#checkedAll_2").click(function () {
+            var flag = $(this).prop("checked");
+            $("input[name='items']").each(function (i,item) {
+                $(item).prop("checked",flag);
+            })
+        })
+        //点击提交
+        $("#send").click(function () {
+            $("input[name='items']").each(function (i,item) {
+               if($(item).prop("checked")){
+                   console.info($(item).val())
+               }
+            })
+        })
+        //判断选中个数和总个数一致
+        $("input[name='items']").click(function () {
+            var length = $("input[name='items']").length;
+            var len = 0;
+            $("input[name='items']").each(function (i, item) {
+                if($(item).prop("checked")){
+                    len++;
+                }
+            })
+            if(len === length){
+                $("#checkedAll_2").prop("checked",true);
+            }else{
+                $("#checkedAll_2").prop("checked",false);
+            }
+        })
+        //全选
+        $("#CheckedAll").click(function () {
+            $("input[name='items']").each(function (i, item) {
+                $(item).prop("checked",true);
+            })
+            $("#checkedAll_2").prop("checked",true);
+        })
+        //全不选
+        $("#CheckedNo").click(function () {
+            $("input[name='items']").each(function (i, item) {
+                $(item).prop("checked",false);
+            })
+            $("#checkedAll_2").prop("checked",false);
+        });
+
+        //反选
+        $("#CheckedRev").click(function () {
+            var status = $("#checkedAll_2").prop("checked");
+            if(status){
+                $("#checkedAll_2").prop("checked",false);
+                $("input[name='items']").each(function (i, item) {
+                    $(item).prop("checked",false);
+                })
+            } else{
+                var length = $("input[name='items']").length;
+                var len = 0;
+                $("input[name='items']").each(function (i, item) {
+                    if($(item).prop("checked")){
+                        len++;
+                    }
+                })
+                if(len === 0){
+                    $("input[name='items']").each(function (i, item) {
+                        var propflag = $(item).prop("checked");
+                        $(item).prop("checked",!propflag);
+                    })
+                    $("#checkedAll_2").prop("checked",true);
+                }else {
+                    $("input[name='items']").each(function (i, item) {
+                        var propflag = $(item).prop("checked");
+                        $(item).prop("checked",!propflag);
+                    })
+                }
+            }
+        })
+    })
+
+
+
+
+    /*
+    $("input[name='items']").each(function (i, item) {
+        if($(item).prop("checked")){
+            len++;
+        }
+    })
+    if(len === length){
+        $("#checkedAll_2").prop("checked",true);
+    }else {
+
+    }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $(function () {
+        //添加事件
+        $("#button").click(function () {
+            //获取输入框的内容
+            var val = $("#name").val();
+            var flag = null;
+            $("input[name='type']").each(function (i,item) {
+                if($(item).prop("checked")){
+                    flag = $(item).val();
+                }
+            });
+            if(flag == null){
+                alert("请选择选项");
+                return false;
+            }
+            if(val == ""){
+                return false;
+            }
+            var $li = $("<li>" + val +"</li>");
+            //$("#" + flag).append($li)
+            $li.appendTo($("#" + flag));
+        })
+    })
+</script>
+</html>

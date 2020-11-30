@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js insertbefore实例</title>
+</head>
+<body>
+<div id="div1">
+    <p id="p1">这是一段文字。</p>
+    <p id="p2">这是另一段文字。</p>
+</div>
+
+</body>
+<script>
+    var node = document.createElement("p");
+    var text = document.createTextNode("这是新添加的文字哦");
+    node.appendChild(text);
+
+    var elementById = document.getElementById("div1");
+    var p1 = document.getElementById("p1");
+    elementById.insertBefore(node,p1);
+</script>
+</html>
